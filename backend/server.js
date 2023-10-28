@@ -35,7 +35,7 @@ app.post("/generate-text", async (req, res) => {
         },
         {
           role: "user",
-          content: `Generates creative and contextually relevant text for ${prompt}.Produce human-like text in response. Always print complete sentences`,
+          content: `Generate creative and contextually relevant text for the following topic: "${prompt}". Produce complete sentences. If the text is too long, prioritize finishing the current sentence before starting a new one.`,
         },
       ],
       model: "gpt-3.5-turbo",
@@ -67,7 +67,7 @@ app.post("/summarize-text", async (req, res) => {
         },
         {
           role: "user",
-          content: `Summarize the following text: ${textToSummarize}.Always print complete sentences`,
+          content: `Summarize the following text: "${textToSummarize}". Ensure that the summary consists of complete sentences and captures the key information.`,
         },
       ],
       model: "gpt-3.5-turbo",
@@ -94,7 +94,7 @@ app.post("/translate-text", async (req, res) => {
         },
         {
           role: "user",
-          content: `Translate the following text to ${targetLanguage}.While translating make sure that the meaning of both text that is input text and translated text would be same: ${textToTranslate}`,
+          content: `Act as a translator proficient in every language and possessing extensive knowledge of all languages in the world. Translate the following text to "${targetLanguage}": "${textToTranslate}". Ensure that the translation is in the form of complete and grammatically correct sentences.`,
         },
       ],
       model: "gpt-3.5-turbo",
