@@ -7,7 +7,7 @@ function InputForm() {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
   const [targetLanguage, setTargetLanguage] = useState(""); // For translation
-  const baseURL = "http://localhost:8080"
+  const baseURL = "https://dull-handbag-frog.cyclic.app"
 
   const handleTextGeneration = async () => {
     try {

@@ -35,11 +35,11 @@ app.post("/generate-text", async (req, res) => {
         },
         {
           role: "user",
-          content: `Generates creative and contextually relevant text for ${prompt}.Produce human-like text in response.`,
+          content: `Generates creative and contextually relevant text for ${prompt}.Produce human-like text in response. Always print complete sentences`,
         },
       ],
       model: "gpt-3.5-turbo",
-      max_tokens: 50,
+      max_tokens: 100,
     });
 
     // Extract the converted code from the GPT-3 response
@@ -67,11 +67,11 @@ app.post("/summarize-text", async (req, res) => {
         },
         {
           role: "user",
-          content: `Summarize the following text: ${textToSummarize}`,
+          content: `Summarize the following text: ${textToSummarize}.Always print complete sentences`,
         },
       ],
       model: "gpt-3.5-turbo",
-      max_tokens: 30,
+      max_tokens: 100,
     });
     const summarizedText = response.choices[0].message.content;
     res.json({ summarizedText });
@@ -90,7 +90,7 @@ app.post("/translate-text", async (req, res) => {
         {
           role: "system",
           content:
-            "Act as Translator. Who is proficient in every language. Who has great knowledge about all the languages in the world.",
+            "Act as Translator. Who is proficient in every language. Who has great knowledge about all the languages in the world.Always print complete sentences",
         },
         {
           role: "user",
